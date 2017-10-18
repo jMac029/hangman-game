@@ -5,12 +5,14 @@ window.onload = () => {
 
 	// Global Variables
 	let wins ; 
-	let numberOfGuesses = 10;
+	let numberOfGuesses ;
 	let phrase ;
+	let userGuess ;
+	let userGuesses = [];
 	let space ;
 	let lives ;
 	let counter ;
-	let levels = 10;
+	let levels ;
 
 	//Global Constants
 
@@ -54,12 +56,8 @@ window.onload = () => {
 						"MILLENIUM-FALCON"
 					];
 
-	// Function to select a word at random from the phraseArray
-	// let selectPhrase () => {
-	// 	return phrase[Math.floor(Math.random() * phraseArray.length)];
-	// }
 
-	// Function to Create AlphaNumeric 
+	// Function to Create AlphaNumeric Buttons on screen
 
 	let alphaNumericButtons = () => {
 		buttons = document.getElementById('alphanumeric-buttons');
@@ -70,22 +68,73 @@ window.onload = () => {
 			list = document.createElement('li');
 			list.id = 'character';
 			list.innerHTML = alphaNumeric[i];
-			// check();
+			checkCharacter();
 			buttons.appendChild(characters);
 			characters.appendChild(list);
 		}
 	}
 
-	// Function to create blank underscores for the letters in the Phrase array
 
-	// let blankAnswers ( answerPhrase ) => {
-	// 	let blanks = "";
-	// 	for (i in answerPhrase ) {
-	// 		blanks = "_" + blanks;
-	// 	}
-	// 	return blanks;
-	// }
 
-	alphaNumericButtons();
+	// Function to Display Phrase for that Round
+
+	let displayPhrase = () => {
+		phraseDisplay = document.getElementById('phrase')
+		correct = document.createElement('ul');
+
+		for (var i = 0; i < phrase.length; i++) {
+			correct.setAttribute('id', 'the-phrase');
+			userGuess = document.createElement('li');
+			userGuess.setAttribute('class', 'user-guess');
+			if (phrase[i] === "-") {
+				userGuess.innerHTML = "-";
+				space = 1;
+			} else {
+				userGuess.innerHTML = "_";
+			}
+
+			userGuesses.push(userGuess);
+			phraseDisplay.appendChild(correct);
+			correct.appendChild(userGuess);
+		}
+	}
+
+	// Function for Clicks
+
+	let checkCharacter = () => {
+		list.onclick = () => {
+			let userPick = (this.innerHTML);
+			list.setAttribute("class", "active");
+			this.onclick = null;
+			console.log(userPick);
+			for (var i = 0; i < phrase.length; i++) {
+				if (phrase[i] === userGuess) {
+					userGuesses[i].innerHTML = userPick;
+					counter += 1;
+				}
+			}
+			var j = (phrase.indexOf(userPick));
+			if (j === -1 ) {
+				numberOfGuesses -= 1
+			}
+		}
+	}
+
+	// Function to start playing of a round
+
+	let startRound = () => {
+
+		phrase = phraseArray[Math.floor(Math.random() * phraseArray.length)];
+		phrase = phrase.replace(/\s/g, "-");
+		console.log(phrase);
+		alphaNumericButtons();
+		numberOfGuesses = 10;
+		counter = 0;
+		space = 0;
+		displayPhrase();
+
+	}
+
+	startRound();
 
 };
