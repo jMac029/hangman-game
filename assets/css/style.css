@@ -1,0 +1,59 @@
+/* Star Wars Hangman CSS
+    Started from a basic wireframe
+*/
+
+body {
+  width: 960px;
+  margin: auto;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 18px;
+  line-height: 34px;
+  color: #38EF31;
+  background: #000;
+}
+
+header,
+nav,
+section,
+aside,
+footer {
+  display: block;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  color: #38EF31;
+}
+
+section {
+  display: block;
+  float: left;
+  width: 495px;
+  height: 267px;
+  overflow: hidden;
+}
+
+aside {
+  display: block;
+  float: right;
+  width: 40%;
+  height: 267px;
+  overflow: hidden;
+}
+
+article {
+  padding: 10px;
+  color: #ebebeb;
+}
+
+.clear {
+  clear: both;
+}
+
+h1,
+p {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  color: #38EF31;
+  text-align: center;
+}
