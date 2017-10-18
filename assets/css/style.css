@@ -26,9 +26,14 @@ footer {
   color: #38EF31;
 }
 
-#header {
+.header {
   border-bottom: dashed 3px #fff;
   margin: auto;
+  text-align: center;
+}
+
+#header-logo {
+  width: 40%;
 }
 
 #stats-bar {

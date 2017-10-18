@@ -193,7 +193,7 @@ window.onload = () => {
 
 		phrase = phraseArray[Math.floor(Math.random() * phraseArray.length)];
 		phrase = phrase.replace(/\s/g, "-");
-		console.log(phrase);
+		//console.log(phrase);
 		alphaNumericButtons();
 		userGuesses = [];
 		numberOfGuesses = 10;
