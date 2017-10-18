@@ -57,16 +57,7 @@ window.onload = () => {
 						"MILLENIUM-FALCON",
 						"ROUGE-ONE"
 					];
-
-
-	let statsHtml = 
-		"<ul>" +
-		"<li>LEVEL: " + level + "</li>" +
-		"<li>LIVES: " + lives + "</li>" + 
-		"<li>GUESSES LEFT: " + numberOfGuesses + "<li>" +
-		"<ul>";
-
-		document.querySelector(".stats-bar").innerHTML = statsHtml;
+	
 
 	// Function to Create AlphaNumeric Buttons on screen
 
@@ -120,30 +111,35 @@ window.onload = () => {
 			let userPick = (this.innerHTML);
 			this.setAttribute('class', 'active');
 			this.onclick = null;
-			console.log(userPick);
 			for (var i = 0; i < phrase.length; i++) {
 				if (phrase[i] === userPick) {
 					userGuesses[i].innerHTML = userPick;
 					counter++;
+					updateStats();
 				}
 			}
 			var j = (phrase.indexOf(userPick));
 			if (j === -1 ) {
 				numberOfGuesses--;
+				updateStats();
 			}
 			for (var i = 0; i < userGuesses.length; i++) {
 				if (counter + space === userGuesses.length) {
 					level++;
 					alertWin();
-					clearGameArea();
-					startRound();
+					updateStats();
 				}
 			}
 			if (numberOfGuesses == 0) {
 				lives--;
 				alertLoss();
-				clearGameArea();
-				startRound();
+				updateStats();
+			}
+			if (level == 11) {
+				alertJediMaster();
+			}
+			if (lives == 0) {
+				alertGameOver();
 			}
 		}
 	}
@@ -161,8 +157,27 @@ window.onload = () => {
 		counter = 0;
 		space = 0;
 		displayPhrase();
+		updateStats();
 
 
+	}
+
+	let resetGame = () => {
+		clearGameArea();
+		startRound();
+		lives = 3;
+		level = 1;
+	}
+
+	let updateStats = () => {
+		let statsHtml = 
+			"<ul>" +
+			"<li>LEVEL " + level + "</li>" +
+			"<li>LIVES " + lives + "</li>" + 
+			"<li>GUESSES LEFT " + numberOfGuesses + "<li>" +
+			"<ul>";
+
+			document.querySelector("#stats-bar").innerHTML = statsHtml;
 	}
 
 	let clearGameArea = () => {
@@ -171,11 +186,25 @@ window.onload = () => {
 	};
 
 	let alertWin = () => {
-		alert("YOU WIN! THE PHRASE WAS: " + phrase + ". " + "THE FORCE IS STRONG WITH YOU");
+		alert("LEVEL UP! THE PHRASE WAS: " + phrase + ". " + "THE FORCE IS STRONG WITH YOU");
+		clearGameArea();
+		startRound();
 	}
 
 	let alertLoss = () => {
 		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "THE FORCE IS NOT STRONG WITH YOU");
+		clearGameArea();
+		startRound();
+	}
+
+	let alertJediMaster = () => {
+		alert("YOU ARE A JEDI MASTER! THE FORCE IS STRONG WITH YOU. LET'S PLAY AGAIN!");
+		resetGame();
+	}
+
+	let alertGameOver = () => {
+		alert("GAME OVER, WOULD YOU LIKE TO PLAY AGAIN?");
+		resetGame();
 	}
 
 

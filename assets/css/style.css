@@ -31,7 +31,7 @@ footer {
   margin: auto;
 }
 
-.stats-bar {
+#stats-bar {
   height: 40px;
   border-bottom: dashed 3px #38EF31;
   margin: auto;
@@ -39,7 +39,7 @@ footer {
   text-align: center;
 }
 
-.stats-bar li {
+#stats-bar li {
   position: relative;
   list-style: none;
   margin: 0;
