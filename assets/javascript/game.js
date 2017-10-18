@@ -7,6 +7,7 @@ window.onload = () => {
 	let wins ; 
 	let numberOfGuesses ;
 	let phrase ;
+	let character ;
 	let userGuess ;
 	let userGuesses = [];
 	let space ;
@@ -53,24 +54,25 @@ window.onload = () => {
 						"CHEWBACA",
 						"X-WING",
 						"TIE-FIGHTER",
-						"MILLENIUM-FALCON"
+						"MILLENIUM-FALCON",
+						"ROUGE-9"
 					];
 
 
 	// Function to Create AlphaNumeric Buttons on screen
 
 	let alphaNumericButtons = () => {
-		buttons = document.getElementById('alphanumeric-buttons');
+		characterButtons = document.getElementById('alphanumeric-buttons');
 		characters = document.createElement('ul');
 
 		for (var i = 0; i < alphaNumeric.length; i++) {
 			characters.id = 'alphaNumeric';
-			list = document.createElement('li');
-			list.id = 'character';
-			list.innerHTML = alphaNumeric[i];
+			character = document.createElement('li');
+			character.id = 'character';
+			character.innerHTML = alphaNumeric[i];
 			checkCharacter();
-			buttons.appendChild(characters);
-			characters.appendChild(list);
+			characterButtons.appendChild(characters);
+			characters.appendChild(character);	
 		}
 	}
 
@@ -87,7 +89,7 @@ window.onload = () => {
 			userGuess = document.createElement('li');
 			userGuess.setAttribute('class', 'user-guess');
 			if (phrase[i] === "-") {
-				userGuess.innerHTML = "-";
+				userGuess.innerHTML = " ";
 				space = 1;
 			} else {
 				userGuess.innerHTML = "_";
@@ -99,23 +101,26 @@ window.onload = () => {
 		}
 	}
 
-	// Function for Clicks
+	// Function to capture clicks of items in the alphaNumeric items
 
-	let checkCharacter = () => {
-		list.onclick = () => {
+
+	// Function for when user clicks on an item
+
+	let checkCharacter = function() {
+		character.onclick = function() {
 			let userPick = (this.innerHTML);
-			list.setAttribute("class", "active");
+			this.setAttribute('class', 'active');
 			this.onclick = null;
 			console.log(userPick);
 			for (var i = 0; i < phrase.length; i++) {
-				if (phrase[i] === userGuess) {
+				if (phrase[i] === userPick) {
 					userGuesses[i].innerHTML = userPick;
 					counter += 1;
 				}
 			}
 			var j = (phrase.indexOf(userPick));
 			if (j === -1 ) {
-				numberOfGuesses -= 1
+				numberOfGuesses -= 1;
 			}
 		}
 	}
