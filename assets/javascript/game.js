@@ -167,6 +167,7 @@ window.onload = () => {
 		startRound();
 		lives = 3;
 		level = 1;
+		updateStats();
 	}
 
 	let updateStats = () => {
