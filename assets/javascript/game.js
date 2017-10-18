@@ -43,7 +43,7 @@ window.onload = () => {
 						"PRINCESS-LEIA",
 						"OBI-WON KENOBI",
 						"JAR-JAR BINKS",
-						"RD-D2",
+						"R2-D2",
 						"C-3PO",
 						"BB-8",
 						"POE-DAMARON",
