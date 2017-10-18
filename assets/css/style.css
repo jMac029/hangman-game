@@ -31,6 +31,23 @@ footer {
   margin: auto;
 }
 
+.stats-bar {
+  height: 40px;
+  border-bottom: dashed 3px #38EF31;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.stats-bar li {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0 2em;
+  display: inline-block;
+  font-size: .7em;
+}
+
 #phrase {
   float: left;
   margin: 25px auto;

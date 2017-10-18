@@ -5,15 +5,15 @@ window.onload = () => {
 
 	// Global Variables
 	let wins ; 
-	let numberOfGuesses ;
+	let numberOfGuesses = 10 ;
 	let phrase ;
 	let character ;
 	let userGuess ;
 	let userGuesses = [];
 	let space ;
-	let lives ;
+	let lives = 3;
 	let counter ;
-	let levels ;
+	let level = 1;
 
 	//Global Constants
 
@@ -55,9 +55,18 @@ window.onload = () => {
 						"X-WING",
 						"TIE-FIGHTER",
 						"MILLENIUM-FALCON",
-						"ROUGE-9"
+						"ROUGE-ONE"
 					];
 
+
+	let statsHtml = 
+		"<ul>" +
+		"<li>LEVEL: " + level + "</li>" +
+		"<li>LIVES: " + lives + "</li>" + 
+		"<li>GUESSES LEFT: " + numberOfGuesses + "<li>" +
+		"<ul>";
+
+		document.querySelector(".stats-bar").innerHTML = statsHtml;
 
 	// Function to Create AlphaNumeric Buttons on screen
 
@@ -115,30 +124,60 @@ window.onload = () => {
 			for (var i = 0; i < phrase.length; i++) {
 				if (phrase[i] === userPick) {
 					userGuesses[i].innerHTML = userPick;
-					counter += 1;
+					counter++;
 				}
 			}
 			var j = (phrase.indexOf(userPick));
 			if (j === -1 ) {
-				numberOfGuesses -= 1;
+				numberOfGuesses--;
+			}
+			for (var i = 0; i < userGuesses.length; i++) {
+				if (counter + space === userGuesses.length) {
+					level++;
+					alertWin();
+					clearGameArea();
+					startRound();
+				}
+			}
+			if (numberOfGuesses == 0) {
+				lives--;
+				alertLoss();
+				clearGameArea();
+				startRound();
 			}
 		}
 	}
 
-	// Function to start playing of a round
 
+	// Function to start playing of a round
 	let startRound = () => {
 
 		phrase = phraseArray[Math.floor(Math.random() * phraseArray.length)];
 		phrase = phrase.replace(/\s/g, "-");
 		console.log(phrase);
 		alphaNumericButtons();
+		userGuesses = [];
 		numberOfGuesses = 10;
 		counter = 0;
 		space = 0;
 		displayPhrase();
 
+
 	}
+
+	let clearGameArea = () => {
+		document.getElementById('phrase').innerHTML = "";
+		document.getElementById('alphanumeric-buttons').innerHTML = "";
+	};
+
+	let alertWin = () => {
+		alert("YOU WIN! THE PHRASE WAS: " + phrase + ". " + "THE FORCE IS STRONG WITH YOU");
+	}
+
+	let alertLoss = () => {
+		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "THE FORCE IS NOT STRONG WITH YOU");
+	}
+
 
 	startRound();
 
