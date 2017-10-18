@@ -4,12 +4,14 @@
 
 body {
   width: 960px;
-  margin: auto;
+  margin: 25px auto;
   font-family: 'Press Start 2P', cursive;
   font-size: 18px;
   line-height: 34px;
   color: #38EF31;
   background: #000;
+  cursor: crosshair;
+  border: dashed 3px #38EF31;
 }
 
 header,
@@ -22,6 +24,11 @@ footer {
   margin: 10px;
   text-align: center;
   color: #38EF31;
+}
+
+#header {
+  border-bottom: dashed 3px #fff;
+  margin: auto;
 }
 
 section {
@@ -51,9 +58,36 @@ article {
 
 h1,
 p {
-  width: 90%;
-  padding: 10px;
-  margin: 10px;
   color: #38EF31;
   text-align: center;
+}
+
+/* AlphaNumeric Buttons */
+.buttons {
+  margin: 15px auto;
+  padding: 0;
+  max-width: 90%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.buttons li {
+  float: left;
+  list-style: none;
+  background: #38EF31;
+  color: #000;
+  padding: 0 15px;
+}
+
+.buttons li:hover {
+  background: #000;
+  color: #38EF31;
+  
+}
+
+/* Footer */
+.footer {
+  margin-top: 20px;
+  border-top: 3px dashed #fff;
+  font-size: .7em;
 }

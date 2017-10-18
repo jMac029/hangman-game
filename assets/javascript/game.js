@@ -9,14 +9,14 @@ window.onload = () => {
 	let phrase ;
 	let space ;
 	let lives ;
+	let counter ;
 	let levels = 10;
 
 	//Global Constants
 
-	const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-						"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-	const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+	const alphaNumeric = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+						"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 
+						"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 	// array of Star Wars Phrases to choose from
 	let phraseArray = [
@@ -55,19 +55,37 @@ window.onload = () => {
 					];
 
 	// Function to select a word at random from the phraseArray
+	// let selectPhrase () => {
+	// 	return phrase[Math.floor(Math.random() * phraseArray.length)];
+	// }
 
-	let selectPhrase () => {
-		return phrase[Math.floor(Math.random() * phraseArray.length)];
+	// Function to Create AlphaNumeric 
+
+	let alphaNumericButtons = () => {
+		buttons = document.getElementById('alphanumeric-buttons');
+		characters = document.createElement('ul');
+
+		for (var i = 0; i < alphaNumeric.length; i++) {
+			characters.id = 'alphaNumeric';
+			list = document.createElement('li');
+			list.id = 'character';
+			list.innerHTML = alphaNumeric[i];
+			// check();
+			buttons.appendChild(characters);
+			characters.appendChild(list);
+		}
 	}
 
 	// Function to create blank underscores for the letters in the Phrase array
 
-	let blankAnswers ( answerPhrase ) => {
-		let blanks = "";
-		for (i in answerPhrase ) {
-			blanks = "_" + blanks;
-		}
-		return blanks;
-	}
+	// let blankAnswers ( answerPhrase ) => {
+	// 	let blanks = "";
+	// 	for (i in answerPhrase ) {
+	// 		blanks = "_" + blanks;
+	// 	}
+	// 	return blanks;
+	// }
+
+	alphaNumericButtons();
 
 };
