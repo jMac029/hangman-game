@@ -41,8 +41,8 @@ window.onload = () => {
 						"DARTH-VADER",
 						"HAN-SOLO",
 						"PRINCESS-LEIA",
-						"OBI-WON-KENOBI",
-						"JAR-JAR-BINKS",
+						"OBI-WON KENOBI",
+						"JAR-JAR BINKS",
 						"RD-D2",
 						"C-3PO",
 						"BB-8",
@@ -90,7 +90,10 @@ window.onload = () => {
 			userGuess.setAttribute('class', 'user-guess');
 			if (phrase[i] === "-") {
 				userGuess.innerHTML = " ";
-				space = 1;
+				space++;
+			} else if (phrase[i] === " ") {
+				userGuess.innerHTML = " ";
+				space++;
 			} else {
 				userGuess.innerHTML = "_";
 			}
