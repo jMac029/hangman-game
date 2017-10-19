@@ -251,7 +251,12 @@ window.onload = () => {
 		resetGame();
 	}
 
+	let playSWTheme = () => {
+		document.getElementById("star_wars_theme").play();
+	}
+
 
 	startRound();
+	playSWTheme();
 
 };
