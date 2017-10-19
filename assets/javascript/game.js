@@ -14,6 +14,7 @@ window.onload = () => {
 	let lives = 3;
 	let counter ;
 	let points = 0;
+	let bonus = false;
 	let level = 1;
 
 	// Constants
@@ -185,7 +186,15 @@ window.onload = () => {
 				alertLoss();
 				updateStats();
 			}
+			if (level == 6 && bonus == false) {
+				points += 25;
+				alertBonus25();
+			}
+			if (level == 7) {
+				bonus = false;
+			}
 			if (level == 11) {
+				points += 50;
 				alertJediMaster();
 			}
 			if (lives == 0) {
@@ -239,19 +248,25 @@ window.onload = () => {
 	};
 
 	let alertWin = () => {
-		alert("LEVEL UP! THE PHRASE WAS: " + phrase + ". " + "YOUR SCORE IS " + points + ". " + "THE FORCE IS STRONG WITH YOU.");
+		alert("LEVEL UP! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "THE FORCE IS STRONG WITH YOU.");
 		clearGameArea();
 		startRound();
 	}
 
+	let alertBonus25 = () => {
+		alert("YOU'VE REACHED LEVEL 6 AND EARNED A 25 POINT BONUS! YOU NOW HAVE " + points + " POINTS." );
+		bonus = true;
+		updateStats();
+	}
+
 	let alertLoss = () => {
-		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "YOUR SCORE IS " + points + ". " + "THE FORCE IS NOT STRONG WITH YOU");
+		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "THE FORCE IS NOT STRONG WITH YOU");
 		clearGameArea();
 		startRound();
 	}
 
 	let alertJediMaster = () => {
-		alert("YOU ARE A JEDI MASTER! WITH A SCORE OF " + points + ". " + "THE FORCE IS STRONG WITH YOU. LET'S PLAY AGAIN!");
+		alert("YOU ARE A JEDI MASTER! WITH " + points + " POINTS. " + "THE FORCE IS STRONG WITH YOU. LET'S PLAY AGAIN!");
 		resetGame();
 	}
 
