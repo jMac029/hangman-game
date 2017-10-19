@@ -3,9 +3,9 @@
 // Load the Game Elements when the page loads
 window.onload = () => {
 
-	// Global Variables
+	// Variables
 	let wins ; 
-	let numberOfGuesses = 10 ;
+	let numberOfGuesses = 7 ;
 	let phrase ;
 	let character ;
 	let userGuess ;
@@ -15,7 +15,7 @@ window.onload = () => {
 	let counter ;
 	let level = 1;
 
-	//Global Constants
+	// Constants
 
 	const alphaNumeric = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
 						"N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", 
@@ -37,6 +37,7 @@ window.onload = () => {
 						"NABOO",
 						"DAGOBAH",
 						"JEDI",
+						"SITH",
 						"YODA",
 						"LUKE SKYWALKER",
 						"ANAKIN SKYWALKER",
@@ -161,7 +162,7 @@ window.onload = () => {
 					updateStats();
 				}
 			}
-			var j = (phrase.indexOf(userPick));
+			let j = (phrase.indexOf(userPick));
 			if (j === -1 ) {
 				numberOfGuesses--;
 				updateStats();
@@ -196,7 +197,7 @@ window.onload = () => {
 		//console.log(phrase);
 		alphaNumericButtons();
 		userGuesses = [];
-		numberOfGuesses = 10;
+		numberOfGuesses = 7;
 		counter = 0;
 		space = 0;
 		displayPhrase();
