@@ -15,7 +15,7 @@ window.onload = () => {
 	let counter ;
 	let points = 0;
 	let bonus = false;
-	let level = 1;
+	let round = 1;
 
 	// Constants
 
@@ -175,7 +175,7 @@ window.onload = () => {
 			for (var i = 0; i < userGuesses.length; i++) {
 				if (counter + space === userGuesses.length) {
 					points += 10;
-					level++;
+					round++;
 					alertWin();
 					updateStats();
 				}
@@ -186,15 +186,35 @@ window.onload = () => {
 				alertLoss();
 				updateStats();
 			}
-			if (level == 6 && bonus == false) {
+			if (round == 6 && bonus == false) {
 				points += 25;
 				alertBonus25();
 			}
-			if (level == 7) {
+			if (round == 7) {
 				bonus = false;
 			}
-			if (level == 11) {
+			if (round == 11 && bonus == false) {
 				points += 50;
+				lives++;
+				alertBonus50();
+			}
+			if (round == 12) {
+				bonus = false;
+			}
+			if (round == 16 && bonus == false) {
+				points += 100;
+				alertBonus100();
+			}
+			if (round == 17) {
+				bonus = false;
+			}
+			if (round == 21 && bonus == false) {
+				points += 150;
+				lives++;
+				alertBonus150();
+			}
+			if (round == 26) {
+				points += 200;
 				alertJediMaster();
 			}
 			if (lives == 0) {
@@ -208,7 +228,7 @@ window.onload = () => {
 	let startRound = () => {
 
 		phrase = phraseArray[Math.floor(Math.random() * phraseArray.length)];
-		phrase = phrase.replace(/\s/g, "-");
+		//phrase = phrase.replace(/\s/g, "-");
 		//console.log(phrase);
 		alphaNumericButtons();
 		userGuesses = [];
@@ -226,14 +246,14 @@ window.onload = () => {
 		startRound();
 		points = 0;
 		lives = 3;
-		level = 1;
+		round = 1;
 		updateStats();
 	}
 
 	let updateStats = () => {
 		let statsHtml = 
 			"<ul>" +
-			"<li>LEVEL " + level + "</li>" +
+			"<li>ROUND " + round + "</li>" +
 			"<li>LIVES " + lives + "</li>" + 
 			"<li>POINTS " + points + "</li>" +
 			"<li>GUESSES LEFT " + numberOfGuesses + "</li>" +
@@ -248,13 +268,31 @@ window.onload = () => {
 	};
 
 	let alertWin = () => {
-		alert("LEVEL UP! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "THE FORCE IS STRONG WITH YOU.");
+		alert("ONTO THE NEXT ROUND! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "THE FORCE IS STRONG WITH YOU.");
 		clearGameArea();
 		startRound();
 	}
 
 	let alertBonus25 = () => {
-		alert("YOU'VE REACHED LEVEL 6 AND EARNED A 25 POINT BONUS! YOU NOW HAVE " + points + " POINTS." );
+		alert("YOU'VE REACHED ROUND 6 AND EARNED A 25 POINT BONUS! YOU NOW HAVE " + points + " POINTS." );
+		bonus = true;
+		updateStats();
+	}
+
+	let alertBonus50 = () => {
+		alert("YOU'VE REACHED ROUND 11 AND EARNED A 50 POINT BONUS AND A EXTRA LIFE! YOU NOW HAVE " + points + " POINTS." );
+		bonus = true;
+		updateStats();
+	}
+
+	let alertBonus100 = () => {
+		alert("YOU'VE REACHED ROUND 16 AND EARNED A 100 POINT BONUS! YOU NOW HAVE " + points + " POINTS." );
+		bonus = true;
+		updateStats();
+	}
+
+	let alertBonus150 = () => {
+		alert("YOU'VE REACHED ROUND 21 AND EARNED A 150 POINT BONUS AND AN EXTRA LIFE! YOU NOW HAVE " + points + " POINTS." );
 		bonus = true;
 		updateStats();
 	}
