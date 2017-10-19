@@ -260,7 +260,7 @@ window.onload = () => {
 	}
 
 	let alertLoss = () => {
-		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "THE FORCE IS NOT STRONG WITH YOU");
+		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "REMEMBER, DO OR DO NOT, THERE IS NO TRY.");
 		clearGameArea();
 		startRound();
 	}
@@ -271,7 +271,7 @@ window.onload = () => {
 	}
 
 	let alertGameOver = () => {
-		alert("GAME OVER, WOULD YOU LIKE TO PLAY AGAIN?");
+		alert("THE FORCE IS NOT STRONG WITH YOU...GAME OVER, WOULD YOU LIKE TO PLAY AGAIN?");
 		resetGame();
 	}
 
