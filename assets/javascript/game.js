@@ -13,6 +13,7 @@ window.onload = () => {
 	let space ;
 	let lives = 3;
 	let counter ;
+	let points = 0;
 	let level = 1;
 
 	// Constants
@@ -158,6 +159,7 @@ window.onload = () => {
 			for (var i = 0; i < phrase.length; i++) {
 				if (phrase[i] === userPick) {
 					userGuesses[i].innerHTML = userPick;
+					points++;
 					counter++;
 					updateStats();
 				}
@@ -165,16 +167,20 @@ window.onload = () => {
 			let j = (phrase.indexOf(userPick));
 			if (j === -1 ) {
 				numberOfGuesses--;
+				points--;
 				updateStats();
+
 			}
 			for (var i = 0; i < userGuesses.length; i++) {
 				if (counter + space === userGuesses.length) {
+					points += 10;
 					level++;
 					alertWin();
 					updateStats();
 				}
 			}
 			if (numberOfGuesses == 0) {
+				points -= 10;
 				lives--;
 				alertLoss();
 				updateStats();
@@ -209,6 +215,7 @@ window.onload = () => {
 	let resetGame = () => {
 		clearGameArea();
 		startRound();
+		points = 0;
 		lives = 3;
 		level = 1;
 		updateStats();
@@ -219,7 +226,8 @@ window.onload = () => {
 			"<ul>" +
 			"<li>LEVEL " + level + "</li>" +
 			"<li>LIVES " + lives + "</li>" + 
-			"<li>GUESSES LEFT " + numberOfGuesses + "<li>" +
+			"<li>POINTS " + points + "</li>" +
+			"<li>GUESSES LEFT " + numberOfGuesses + "</li>" +
 			"<ul>";
 
 			document.querySelector("#stats-bar").innerHTML = statsHtml;
@@ -231,19 +239,19 @@ window.onload = () => {
 	};
 
 	let alertWin = () => {
-		alert("LEVEL UP! THE PHRASE WAS: " + phrase + ". " + "THE FORCE IS STRONG WITH YOU");
+		alert("LEVEL UP! THE PHRASE WAS: " + phrase + ". " + "YOUR SCORE IS " + points + ". " + "THE FORCE IS STRONG WITH YOU.");
 		clearGameArea();
 		startRound();
 	}
 
 	let alertLoss = () => {
-		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "THE FORCE IS NOT STRONG WITH YOU");
+		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "YOUR SCORE IS " + points + ". " + "THE FORCE IS NOT STRONG WITH YOU");
 		clearGameArea();
 		startRound();
 	}
 
 	let alertJediMaster = () => {
-		alert("YOU ARE A JEDI MASTER! THE FORCE IS STRONG WITH YOU. LET'S PLAY AGAIN!");
+		alert("YOU ARE A JEDI MASTER! WITH A SCORE OF " + points + ". " + "THE FORCE IS STRONG WITH YOU. LET'S PLAY AGAIN!");
 		resetGame();
 	}
 
