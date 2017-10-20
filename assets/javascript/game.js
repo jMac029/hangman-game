@@ -11,6 +11,8 @@ window.onload = () => {
 	let character ;
 	let userGuess ;
 	let userGuesses = [];
+	let chosenPhrase = [];
+	let usedPhrases = [];
 	let space ;
 	let lives = 3;
 	let counter ;
@@ -165,23 +167,71 @@ window.onload = () => {
 						{ phrase: "KYLO REN",
 						  category: "VILLAIN",
 						  hint: "EMO KID"
-						}
-						// "CHEWBACCA", 
-						// "JYN ERSO",
-						// "GALEN ERSO",
-						// "BOBA FETT",
-						// "JANGO FETT",
-						// "FINN",
-						// "SAW GERRERA",
-						// "CASSIAN ANDOR",
-						// "GREEDO",
-						// "CHIRRUT IMWE",
-						// "QUI-GON JINN",
-						// "MAZ KANATA",
-						// "ORSON KRENNIC",
-						// "BAZE MALBUS",
-						// "DARTH MAUL",
-						// "MON MOTHMA",
+						},
+						{ phrase: "CHEWBACCA",
+						  category: "HERO",
+						  hint: "FUZZBALL"
+						}, 
+						{ phrase: "JYN ERSO",
+						  category: "HERO",
+						  hint: "I AIM TO REBEL"
+						},
+						{ phrase: "GALEN ERSO",
+						  category: "HERO",
+						  hint: "DESIGNER OF DEATH STAR"
+						},
+						{ phrase: "BOBA FETT",
+						  category: "VILLAIN",
+						  hint: "FAMOUS BOUNTY HUNTER"
+						},
+						{ phrase: "JANGO FETT",
+						  category: "VILLAIN",
+						  hint: "CLONE OF CLONE ARMY"
+						},
+						{ phrase: "FINN",
+						  category: "HERO",
+						  hint: "WAS ONCE A STORMTROOPER"
+						},
+						{ phrase: "SAW GERRERA",
+						  category: "HERO",
+						  hint: "PLAYED BY ACTOR FOREST WHITAKER"
+						},
+						{ phrase: "CASSIAN ANDOR",
+						  category: "HERO",
+						  hint: "REBEL SPY"
+						},
+						{ phrase: "GREEDO",
+						  category: "VILLAIN",
+						  hint: "HE DID NOT SHOOT FIRST"
+						},
+						{ phrase: "CHIRRUT IMWE",
+						  category: "HERO",
+						  hint: "I AM ONE WITH THE FORCE AND THE FORCE IS WITH ME"
+						},
+						{ phrase: "QUI-GON JINN",
+						  category: "HERO",
+						  hint: "TOOK ANAKIN AS PADAWAN"
+						},
+						{ phrase: "MAZ KANATA",
+						  category: "HERO",
+						  hint: "BIG EYES"
+						},
+						{ phrase: "ORSON KRENNIC",
+						  category: "VILLAIN",
+						  hint: "DIRECTOR OF DEATH STAR"
+						},
+						{ phrase: "BAZE MALBUS",
+						  category: "HERO",
+						  hint: "PROTECTOR OF CHIRRUT"
+						},
+						{ phrase: "DARTH MAUL",
+						  category: "VILLAIN",
+						  hint: "EPIC FACE WITH HORNS"
+						},
+						{ phrase: "MON MOTHMA",
+						  category: "HERO",
+						  hint: "LEADER OF THE ALLIANCE"
+						},
 						// "EMPEROR PALPATINE",
 						// "CAPTAIN PHASMA",
 						// "UNKAR PLUTT",
@@ -402,6 +452,9 @@ window.onload = () => {
 	let alertWin = () => {
 		alert("ONTO THE NEXT ROUND! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "THE FORCE IS STRONG WITH YOU.");
 		clearGameArea();
+		usedPhrases.push(chosenPhrase);
+		phraseArray.splice(phraseArray.indexOf(chosenPhrase) , 1);
+		console.log(usedPhrases);
 		startRound();
 	}
 
@@ -432,16 +485,23 @@ window.onload = () => {
 	let alertLoss = () => {
 		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "REMEMBER, DO OR DO NOT, THERE IS NO TRY.");
 		clearGameArea();
+		usedPhrases.push(chosenPhrase);
+		phraseArray.splice(phraseArray.indexOf(chosenPhrase) , 1);
+		console.log(usedPhrases);
 		startRound();
 	}
 
 	let alertJediMaster = () => {
 		alert("YOU ARE A JEDI MASTER! WITH " + points + " POINTS. " + "THE FORCE IS STRONG WITH YOU. LET'S PLAY AGAIN!");
+		phraseArray.push.apply(usedPhrases);
+		usedPhrases = []
 		resetGame();
 	}
 
 	let alertGameOver = () => {
 		alert("THE FORCE IS NOT STRONG WITH YOU...GAME OVER, WOULD YOU LIKE TO PLAY AGAIN?");
+		phraseArray.push.apply(usedPhrases);
+		usedPhrases = []
 		resetGame();
 	}
 
