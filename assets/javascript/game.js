@@ -4,7 +4,7 @@
 window.onload = () => {
 
 	// Variables 
-	let numberOfGuesses = 7 ;
+	let numberOfGuesses ;
 	let phrase ;
 	let category ;
 	let hint ;
@@ -493,14 +493,14 @@ window.onload = () => {
 
 	let alertJediMaster = () => {
 		alert("YOU ARE A JEDI MASTER! WITH " + points + " POINTS. " + "THE FORCE IS STRONG WITH YOU. LET'S PLAY AGAIN!");
-		phraseArray.push.apply(usedPhrases);
+		phraseArray.push(...usedPhrases);
 		usedPhrases = []
 		resetGame();
 	}
 
 	let alertGameOver = () => {
 		alert("THE FORCE IS NOT STRONG WITH YOU...GAME OVER, WOULD YOU LIKE TO PLAY AGAIN?");
-		phraseArray.push.apply(usedPhrases);
+		phraseArray.push(...usedPhrases);
 		usedPhrases = []
 		resetGame();
 	}
