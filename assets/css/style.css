@@ -53,6 +53,11 @@ footer {
   font-size: .7em;
 }
 
+#category h1 {
+  margin: 15px auto;
+  color: #fff;
+}
+
 #phrase {
   float: left;
   margin: 25px auto;
@@ -78,7 +83,10 @@ footer {
   font-size:1.6em;
 }
 
-
+#hint h1 {
+  margin: 25px auto;
+  color: red;
+}
 
 .clear {
   clear: both;
