@@ -23,7 +23,6 @@ let game = {
 				numberOfGuesses--;
 				points--;
 				view.updateStats();
-
 			}
 			// solved phrase
 			for (var i = 0; i < userGuesses.length; i++) {
@@ -81,7 +80,6 @@ let game = {
 			}
 		}
 	},
-
 
 	// Function to start playing of a round
 	startRound: function() {
