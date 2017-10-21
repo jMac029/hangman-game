@@ -1,26 +1,36 @@
 // All the sound effects for the game and object to make them work
 
 
-
+// Sounds Object
 let sounds = {
 
 
 	playSWTheme: function() {
-		document.getElementById("star_wars_theme").play();
+		starWarsTheme = document.getElementById("star_wars_theme");
+		starWarsTheme.volume = 0.7;
+		starWarsTheme.play();
 	},
 
 	playImperialMarch: function() {
-		document.getElementById("imperial_march").play();
+		imperialMarch = document.getElementById("imperial_march");
+		imperialMarch.volume = 0.7;
+		imperialMarch.play();
 	},
 
 	playCantina: function() {
-		document.getElementById("cantina").play();
+		cantina = document.getElementById("cantina");
+		cantina.volume = 0.7;
+		cantina.play();
+
 	},
 
 	playThroneRoom: function() {
-		document.getElementById("throne_room").play();
+		throneRoom = document.getElementById("throne_room");
+		throneRoom.volume = 0.7;
+		throneRoom.play();
 	}
 
+};
 
-
-}
+// Sound Buttons
+let starWarsThemeButton = document.getElementById("button_sw_theme");

@@ -4,7 +4,6 @@
 window.onload = () => {
 
 	game.startRound();
-	//sounds.playThroneRoom();
 
 };
 
