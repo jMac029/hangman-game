@@ -12,10 +12,28 @@ let buttonThroneRoom = document.getElementById("button_throne_room");
 // Sounds Object
 let sounds = {
 
+	// SoundFX
+
+	fxBlaster1: function() {
+		fxBlaster1 = document.getElementById("blaster_1");
+		fxBlaster1.play();
+	},
+
+	fxR2d2beeps: function() {
+		fxR2d2beeps = document.getElementById("r2d2_beeps_2");
+		fxR2d2beeps.play();
+	},
+
+	fxYoda: function() {
+		fxYoda = document.getElementById("yoda_do_or_do_not");
+		fxYoda.play();
+	},
+
+	// Theme Music Choices
 	playSWTheme: function() {
 		if (isPlaying == false) {
 			starWarsTheme = document.getElementById("star_wars_theme");
-			starWarsTheme.volume = 0.7;
+			starWarsTheme.volume = 0.5;
 			starWarsTheme.play();
 			isPlaying = true;
 			buttonSWTheme.setAttribute('class', 'active');
@@ -36,7 +54,7 @@ let sounds = {
 	playImperialMarch: function() {
 		if (isPlaying == false) {
 			imperialMarch = document.getElementById("imperial_march");
-			imperialMarch.volume = 0.7;
+			imperialMarch.volume = 0.5;
 			imperialMarch.play();
 			isPlaying = true;
 			buttonImperialMarch.setAttribute('class', 'active');
@@ -57,7 +75,7 @@ let sounds = {
 	playCantina: function() {
 		if (isPlaying == false ) {
 			cantina = document.getElementById("cantina");
-			cantina.volume = 0.7;
+			cantina.volume = 0.5;
 			cantina.play();
 			isPlaying = true;
 			buttonCantina.setAttribute('class', 'active');
@@ -79,7 +97,7 @@ let sounds = {
 	playThroneRoom: function() {
 		if (isPlaying == false) {
 			throneRoom = document.getElementById("throne_room");
-			throneRoom.volume = 0.7;
+			throneRoom.volume = 0.5;
 			throneRoom.play();
 			isPlaying = true;
 			buttonThroneRoom.setAttribute('class', 'active');

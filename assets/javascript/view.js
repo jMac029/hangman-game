@@ -7,6 +7,9 @@ window.onload = () => {
 
 };
 
+let hintButton = document.getElementById("button_reveal_hint");
+let hintRevealed = false;
+
 // View object
 let view = {
 
@@ -72,12 +75,27 @@ let view = {
 		document.querySelector("#category").innerHTML = categoryHtml;
 	},
 
-	// displayHint: function() {
-	// 	let hintHtml = "<h1>HINT</h1>";
-	// 	document.querySelector("#hint").innerHTML = hintHtml;
-	// },
+	// Reveal Hint costing User 1 guess
+	displayHint: function() {
+		if (hintRevealed == false) {
+			let hintText = "<h1>" + hint + "</h1>";
+			document.querySelector("#hint_area").innerHTML = hintText;
+			numberOfGuesses--;
+			this.updateStats();
+			hintButton.setAttribute('class', 'active');
+			hintButton.disabled = true;
+		} else {
+			hintButton.disabled = false;
+			hintButton.setAttribute('class', '');
+		}
+	},
 
+	// Reset game area between rounds
 	clearGameArea: function() {
+		document.getElementById('hint_area').innerHTML = "";
+		hintRevealed = false;
+		hintButton.setAttribute('class', '');
+		hintButton.disabled = false;
 		document.getElementById('phrase').innerHTML = "";
 		document.getElementById('alphanumeric-buttons').innerHTML = "";
 	},
