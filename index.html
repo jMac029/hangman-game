@@ -61,28 +61,25 @@
 		<div class="clear"></div>
 
 		<div id="sounds">
-			<p>SOUND</p>
+			<p>MUSIC</p>
 			<ul>
 				<li>
-					<button id="button_sw_theme">STAR WARS THEME</button>
+					<button onclick=sounds.playSWTheme(); id="button_swTheme">STAR WARS THEME</button>
 				</li>
 				<li>
-					<button id="button_imperial_march">IMPERIAL MARCH</button>
+					<button onclick=sounds.playImperialMarch(); id="button_imperial_march">IMPERIAL MARCH</button>
 				</li>
 				<li>
-					<button id="button_cantina">CANTINA</button>
+					<button onclick=sounds.playCantina(); id="button_cantina">CANTINA</button>
 				</li>
 				<li>
-					<button id="button_throne_room">THRONE ROOM</button>
+					<button onclick=sounds.playThroneRoom(); id="button_throne_room">THRONE ROOM</button>
 				</li>
-				<li>
-					<button id="button_music_off">MUSIC OFF</button>
-				</li>
-				<li>
+				<!-- <li>
 					<button id="button_effects_off">SOUND FX OFF</button>
-				</li>
+				</li> -->
 			</ul>
-			<audio src="assets/audio/star_wars_theme_song_8-bit_universe.m4a" loop="loop"></audio>
+			<audio id="star_wars_theme" src="assets/audio/star_wars_theme_song_8-bit_universe.m4a" loop="loop"></audio>
 			<audio id="imperial_march" src="assets/audio/star_wars_imperial_march_8-bit_universe.m4a" loop="loop"></audio>
 			<audio id="cantina" src="assets/audio/star_wars_catina_song_8-bit_universe.m4a" loop="loop"></audio>
 			<audio id="throne_room" src="assets/audio/star_wars_throne_room_8-bit_universe.m4a" loop="loop"></audio>
