@@ -40,7 +40,7 @@ let view = {
 			userGuess.setAttribute('class', 'user-guess');
 			// how to do will spaces and dashes in phrases
 			if (phrase[i] === "-") {
-				userGuess.innerHTML = " ";
+				userGuess.innerHTML = "-";
 				space++;
 			} else if (phrase[i] === " ") {
 				userGuess.innerHTML = " ";
@@ -60,7 +60,7 @@ let view = {
 	updateStats: function() {
 		let statsHtml = 
 			"<ul>" +
-			"<li>ROUND " + round + "</li>" +
+			"<li>ROUND " + round + " OF 25</li>" +
 			"<li>LIVES " + lives + "</li>" + 
 			"<li>POINTS " + points + "</li>" +
 			"<li>GUESSES LEFT " + numberOfGuesses + "</li>" +
@@ -81,6 +81,7 @@ let view = {
 			let hintText = "<h1>" + hint + "</h1>";
 			document.querySelector("#hint_area").innerHTML = hintText;
 			numberOfGuesses--;
+			points -= 5;
 			this.updateStats();
 			hintButton.setAttribute('class', 'active');
 			hintButton.disabled = true;
