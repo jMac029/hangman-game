@@ -139,7 +139,7 @@ let view = {
 	},
 
 	alertLoss: function() {
-		alert("YOU LOOSE! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "REMEMBER, DO OR DO NOT, THERE IS NO TRY.");
+		alert("YOU LOSE! THE PHRASE WAS: " + phrase + ". " + "YOU HAVE " + points + " POINTS. " + "REMEMBER, DO OR DO NOT, THERE IS NO TRY.");
 		this.clearGameArea();
 		usedPhrases.push(chosenPhrase);
 		phraseArray.splice(phraseArray.indexOf(chosenPhrase) , 1);
