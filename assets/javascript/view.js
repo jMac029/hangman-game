@@ -80,10 +80,10 @@ let view = {
 		if (hintRevealed == false) {
 			let hintText = "<h1>" + hint + "</h1>";
 			document.querySelector("#hint_area").innerHTML = hintText;
+			sounds.fxChewy();
 			numberOfGuesses--;
 			points -= 5;
 			this.updateStats();
-			hintButton.setAttribute('class', 'active');
 			hintButton.disabled = true;
 		} else {
 			hintButton.disabled = false;
@@ -113,24 +113,28 @@ let view = {
 	alertBonus25: function() {
 		alert("YOU'VE REACHED ROUND 6 AND EARNED A 25 POINT BONUS! YOU NOW HAVE " + points + " POINTS." );
 		bonus = true;
+		sounds.fxHanBadFeeling();
 		this.updateStats();
 	},
 
 	alertBonus50: function() {
 		alert("YOU'VE REACHED ROUND 11 AND EARNED A 50 POINT BONUS AND A EXTRA LIFE! YOU NOW HAVE " + points + " POINTS." );
 		bonus = true;
+		sounds.fxLuke();
 		this.updateStats();
 	},
 
 	alertBonus100: function() {
 		alert("YOU'VE REACHED ROUND 16 AND EARNED A 100 POINT BONUS! YOU NOW HAVE " + points + " POINTS." );
 		bonus = true;
+		sounds.fxHanCaptain();
 		this.updateStats();
 	},
 
 	alertBonus150: function() {
 		alert("YOU'VE REACHED ROUND 21 AND EARNED A 150 POINT BONUS AND AN EXTRA LIFE! YOU NOW HAVE " + points + " POINTS." );
 		bonus = true;
+		sounds.fxDarthVader();
 		this.updateStats();
 	},
 
@@ -139,7 +143,8 @@ let view = {
 		this.clearGameArea();
 		usedPhrases.push(chosenPhrase);
 		phraseArray.splice(phraseArray.indexOf(chosenPhrase) , 1);
-		console.log(usedPhrases);
+		// console.log(usedPhrases);
+		sounds.fxYoda();
 		game.startRound();
 	},
 
@@ -150,6 +155,7 @@ let view = {
 
 	alertGameOver: function() {
 		alert("THE FORCE IS NOT STRONG WITH YOU...GAME OVER, WOULD YOU LIKE TO PLAY AGAIN?");
+		sounds.fxJabba();
 		game.resetGame();
 	},
 };

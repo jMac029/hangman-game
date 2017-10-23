@@ -28,6 +28,30 @@ let sounds = {
 		fxYoda = document.getElementById("yoda_do_or_do_not");
 		fxYoda.play();
 	},
+	fxChewy: function() {
+		fxChewy = document.getElementById("chewbacca");
+		fxChewy.play();
+	},
+	fxDarthVader: function() {
+		fxDarthVader = document.getElementById("darthvader_taughtyouwell");
+		fxDarthVader.play();
+	},
+	fxJabba: function() {
+		fxJabba = document.getElementById("jabba_laugh");
+		fxJabba.play();
+	},
+	fxLuke: function() {
+		fxLuke = document.getElementById("luke_learnthways");
+		fxLuke.play();
+	},
+	fxHanBadFeeling: function() {
+		fxHanBadFeeling = document.getElementById("hansolo_badfeeling");
+		fxHanBadFeeling.play();
+	},
+	fxHanCaptain: function() {
+		fxHanCaptain = document.getElementById("hansolo_captain");
+		fxHanCaptain.play();
+	},
 
 	// Theme Music Choices
 	playSWTheme: function() {

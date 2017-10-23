@@ -14,7 +14,7 @@ let game = {
 					userGuesses[i].innerHTML = userPick;
 					points++;
 					counter++;
-					//sounds.fxR2d2beeps();
+					sounds.fxR2d2beeps();
 					view.updateStats();
 				}
 			}
@@ -23,7 +23,7 @@ let game = {
 			if (j === -1 ) {
 				numberOfGuesses--;
 				points--;
-				//sounds.fxBlaster1();
+				sounds.fxBlaster1();
 				view.updateStats();
 			}
 			// solved phrase
@@ -39,7 +39,6 @@ let game = {
 			if (numberOfGuesses == 0) {
 				points -= 10;
 				lives--;
-				//sounds.fxYoda();
 				view.alertLoss();
 				view.updateStats();
 			}
