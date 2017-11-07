@@ -304,7 +304,7 @@ let phraseArray = [
 					  category: "STARSHIP",
 					  hint: "FASTEST HUNK OF JUNK IN THE GALAXY"
 					},
-					{ phrase: "ROUGE-ONE",
+					{ phrase: "ROGUE-ONE",
 					  category: "STARSHIP",
 					  hint: "CAPTURED IMPERIAL CARGO SHIP"
 					},
