@@ -2,12 +2,14 @@
 
 
 let isPlaying = false;
+let isMute = false;
 
 // Theme Music Buttons
 let buttonSWTheme = document.getElementById("button_swTheme");
 let buttonImperialMarch = document.getElementById("button_imperial_march");
 let buttonCantina = document.getElementById("button_cantina");
 let buttonThroneRoom = document.getElementById("button_throne_room");
+let buttonFX = document.getElementById("button_fx");
 
 // Sounds Object
 let sounds = {
@@ -137,7 +139,19 @@ let sounds = {
 			buttonImperialMarch.disabled = false;
 			buttonCantina.disabled = false;
 		}
-	}
+	},
 
-
+  muteToggle: function() {
+    if (isMute === false) {
+      var audios = document.querySelectorAll("audio");
+      [].forEach.call(audios, function(audio) { audio.muted=true;audio.pause(); });
+      buttonFX.innerHTML = 'SOUND FX 🔊';
+      isMute = true;
+    } else {
+      var unaudios = document.querySelectorAll("audio");
+      [].forEach.call(unaudios, function(audio) { audio.muted=false; });
+      buttonFX.innerHTML = 'SOUND FX 🔇';
+      isMute = false;
+    }
+  }
 };
