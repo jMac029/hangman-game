@@ -319,5 +319,58 @@ let phraseArray = [
 					{ phrase: "STARKILLER BASE",
 					  category: "PLANET",
 					  hint: "BIG RED EYE"
-					}
+					},
+					{ phrase: "PORGS",
+					  category: "SPECIES",
+					  hint: "CUTE BIG EYES & ORANGE"
+					},
+					{ phrase: "AHCH-TO",
+					  category: "PLANET",
+					  hint: "LUKE'S FINAL HOME"
+					},
+					{ phrase: "CANTO BIGHT",
+					  category: "CITY",
+					  hint: "CASINOS & RACETRACKS"
+					},
+					{ phrase: "CRAIT",
+					  category: "PLANET",
+					  hint: "RED SALTY SAND"
+					},
+					{ phrase: "GENERAL HUX",
+					  category: "VILLAIN",
+					  hint: "SNOKE'S PAWN"
+					},
+					{ phrase: "VICE ADMIRAL HOLDO",
+					  category: "HERO",
+					  hint: "GODSPEED REBELS"
+					},
+					{ phrase: "ROSE TICO",
+					  category: "HERO",
+					  hint: "MECHANIC WHO TRAVELS WITH FINN"
+					},
+					{ phrase: "QI'RA",
+					  category: "HERO",
+					  hint: "HAN SOLO'S FIRST LOVE"
+					},
+					{ phrase: "TOBIAS BECKETT",
+					  category: "HERO",
+					  hint: "MENTOR TO HAN SOLO"
+					},
+					{ phrase: "CRIMSON DAWN",
+					  category: "GROUP",
+					  hint: "CRIME SYNDICATE HEADED BY DARTH MAUL"
+					},
+					{ phrase: "DRYDEN VOS",
+					  category: "VILLAIN",
+					  hint: "PUBLIC FACE OF CRIMSON DAWN"
+					},
+					{ phrase: "KESSEL",
+					  category: "PLANET",
+					  hint: "FAMOUS FOR IT'S SPICE MINES"
+					},
+					{ phrase: "L3-37",
+					  category: "DROID",
+					  hint: "LANDO'S CO-PILOT"
+					},
+
 ];
