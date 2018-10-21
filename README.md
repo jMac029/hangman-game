@@ -6,7 +6,7 @@ HANG-MAN Star Wars Edition
 
 The Game starts off in earnest once you load the page. Select the characters on the screen to guess to fill in the word or phrase for that round.
 
-A Random phrase are selected each round from over 75 Star Wars Characters, Places and Ships with more being added.
+A Random phrase are selected each round from 88 Star Wars Characters, Places and Ships expanding all 10 Star Wars feature films.
 
 The game consist of 25 rounds of hang-man.
 
