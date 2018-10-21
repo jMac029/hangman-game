@@ -371,6 +371,6 @@ let phraseArray = [
 					{ phrase: "L3-37",
 					  category: "DROID",
 					  hint: "LANDO'S CO-PILOT"
-					},
+					}
 
 ];
