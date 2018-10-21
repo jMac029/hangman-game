@@ -42,6 +42,9 @@ let view = {
 			if (phrase[i] === "-") {
 				userGuess.innerHTML = "-";
 				space++;
+			} else if (phrase[i] === "'") {
+				userGuess.innerHTML = "'";
+				space++;
 			} else if (phrase[i] === " ") {
 				userGuess.innerHTML = " ";
 				space++;
